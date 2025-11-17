@@ -208,7 +208,11 @@
             <div class="signup-card">
                 <h3>Lista de Interesse</h3>
                 <p class="signup-description">Deixe seu email e receba atualizações sobre o lançamento do LabFlux, além de acesso antecipado à plataforma.</p>
-                <form class="signup-form" id="signupForm">
+                <form class="signup-form" id="signupForm" name="interest-list" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="interest-list">
+                    <p style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="seu.email@universidade.edu.br" required>
                         <button type="submit" class="cta-primary">Quero Ser Notificado</button>
@@ -279,7 +283,6 @@
     <!-- Toast Container -->
     <div id="toast-container"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

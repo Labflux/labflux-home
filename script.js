@@ -29,23 +29,6 @@ function showToast(type, title, message, duration = 5000) {
     }, duration);
 }
 
-// Initialize EmailJS
-(function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with your EmailJS public key
-})();
-
-// Function to send email notification
-function sendEmailNotification(email) {
-    const templateParams = {
-        to_email: 'luiz.ferreira.costa.carvalho@gmail.com',
-        user_email: email,
-        subject: 'Nova inscrição na lista de interesse - LabFlux',
-        message: `Um novo usuário se cadastrou na lista de interesse: ${email}`
-    };
-
-    return emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -114,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle email signup form
+    // Handle email signup form (Netlify Forms)
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', function(e) {
@@ -130,14 +113,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 const originalText = submitButton.textContent;
                 submitButton.textContent = 'Enviando...';
 
-                // Send email notification
-                sendEmailNotification(email)
+                // Submit to Netlify Forms
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(new FormData(signupForm)).toString()
+                })
                     .then(function(response) {
-                        showToast('success', 'Sucesso!', `Obrigado! Seu email ${email} foi adicionado à nossa lista de interesse. Você receberá atualizações em breve!`, 7000);
-                        emailInput.value = '';
+                        if (response.ok) {
+                            showToast('success', 'Sucesso!', `Obrigado! Seu email ${email} foi adicionado à nossa lista de interesse. Você receberá atualizações em breve!`, 7000);
+                            emailInput.value = '';
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
                     })
                     .catch(function(error) {
-                        console.error('Email sending failed:', error);
+                        console.error('Form submission failed:', error);
                         showToast('error', 'Erro ao enviar', 'Não foi possível enviar o email no momento. Por favor, tente novamente mais tarde ou entre em contato diretamente conosco.', 7000);
                     })
                     .finally(function() {
