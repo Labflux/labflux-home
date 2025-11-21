@@ -113,29 +113,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 const originalText = submitButton.textContent;
                 submitButton.textContent = 'Enviando...';
 
-                // Submit to Netlify Forms
-                fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(new FormData(signupForm)).toString()
-                })
-                    .then(function(response) {
-                        if (response.ok) {
-                            showToast('success', 'Sucesso!', `Obrigado! Seu email ${email} foi adicionado à nossa lista de interesse. Você receberá atualizações em breve!`, 7000);
-                            emailInput.value = '';
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
+                // Check if we're on Netlify or local
+                const isNetlify = window.location.hostname !== 'localhost' &&
+                                 window.location.hostname !== '127.0.0.1' &&
+                                 !window.location.hostname.match(/^192\.168\./);
+
+                if (isNetlify) {
+                    // Submit to Netlify Forms
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(new FormData(signupForm)).toString()
                     })
-                    .catch(function(error) {
-                        console.error('Form submission failed:', error);
-                        showToast('error', 'Erro ao enviar', 'Não foi possível enviar o email no momento. Por favor, tente novamente mais tarde ou entre em contato diretamente conosco.', 7000);
-                    })
-                    .finally(function() {
-                        // Re-enable button
+                        .then(function(response) {
+                            if (response.ok) {
+                                showToast('success', 'Sucesso!', `Obrigado! Seu email ${email} foi adicionado à nossa lista de interesse. Você receberá atualizações em breve!`, 7000);
+                                emailInput.value = '';
+                            } else {
+                                throw new Error('Form submission failed');
+                            }
+                        })
+                        .catch(function(error) {
+                            console.error('Form submission failed:', error);
+                            showToast('error', 'Erro ao enviar', 'Não foi possível enviar o email no momento. Por favor, tente novamente mais tarde ou entre em contato diretamente conosco.', 7000);
+                        })
+                        .finally(function() {
+                            // Re-enable button
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                        });
+                } else {
+                    // Local testing - simulate success
+                    setTimeout(function() {
+                        console.log('Local testing mode - Form would submit:', email);
+                        showToast('success', 'Sucesso! (Modo Local)', `Teste local: Seu email ${email} seria adicionado à lista de interesse quando implantado no Netlify.`, 7000);
+                        emailInput.value = '';
                         submitButton.disabled = false;
                         submitButton.textContent = originalText;
-                    });
+                    }, 1000);
+                }
             }
         });
     }

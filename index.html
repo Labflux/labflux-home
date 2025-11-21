@@ -16,6 +16,7 @@
             <div class="nav-links">
                 <a href="#features">Funcionalidades</a>
                 <a href="#benefits">Benefícios</a>
+                <a href="about.html">Sobre</a>
                 <a href="#contact" class="cta-button">Tenho Interesse</a>
             </div>
             <div class="mobile-menu-toggle">
@@ -51,32 +52,8 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="dashboard-mockup">
-                    <div class="mockup-header">
-                        <div class="mockup-controls">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <span class="mockup-title">Painel LabFlux</span>
-                    </div>
-                    <div class="mockup-content">
-                        <div class="mockup-sidebar">
-                            <div class="sidebar-item active">Equipamentos</div>
-                            <div class="sidebar-item">Experimentos</div>
-                            <div class="sidebar-item">Recursos</div>
-                            <div class="sidebar-item">Calendário</div>
-                        </div>
-                        <div class="mockup-main">
-                            <div class="chart-placeholder"></div>
-                            <div class="data-grid">
-                                <div class="grid-item"></div>
-                                <div class="grid-item"></div>
-                                <div class="grid-item"></div>
-                                <div class="grid-item"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="dashboard-screenshot">
+                    <img src="images/products.png" alt="LabFlux Products - Gestão de Produtos" class="screenshot-main">
                 </div>
             </div>
         </section>
@@ -86,34 +63,61 @@
                 <h2>Funcionalidades para Laboratórios de Pesquisa</h2>
                 <p>Tudo que você precisa para gerenciar seu laboratório com eficiência</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <span class="feature-icon">📅</span>
-                        <h3>Calendário de Equipamentos</h3>
+            <div class="features-list">
+                <!-- Feature 1 - Image Left (Desktop) -->
+                <div class="feature-item">
+                    <div class="feature-image desktop">
+                        <img src="images/equipment-detail.png" alt="Calendário de Equipamentos" loading="lazy">
                     </div>
-                    <p>Agende e monitore o uso de equipamentos com calendário integrado e notificações automáticas de disponibilidade.</p>
+                    <div class="feature-content">
+                        <div class="feature-header">
+                            <span class="feature-icon">📅</span>
+                            <h3>Calendário de Equipamentos</h3>
+                        </div>
+                        <p>Agende e monitore o uso de equipamentos com calendário integrado e notificações automáticas de disponibilidade.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <span class="feature-icon">⚙️</span>
-                        <h3>Gestão de Recursos</h3>
+
+                <!-- Feature 2 - Image Right (Desktop) -->
+                <div class="feature-item reverse">
+                    <div class="feature-image desktop">
+                        <img src="images/products.png" alt="Gestão de Recursos" loading="lazy">
                     </div>
-                    <p>Controle recursos do laboratório, monitore estoques e otimize o uso de materiais para reduzir desperdícios.</p>
+                    <div class="feature-content">
+                        <div class="feature-header">
+                            <span class="feature-icon">⚙️</span>
+                            <h3>Gestão de Recursos</h3>
+                        </div>
+                        <p>Controle recursos do laboratório, monitore estoques e otimize o uso de materiais para reduzir desperdícios.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <span class="feature-icon">🧪</span>
-                        <h3>Rastreamento de Experimentos</h3>
+
+                <!-- Feature 3 - Image Left (Desktop) -->
+                <div class="feature-item">
+                    <div class="feature-image desktop">
+                        <img src="images/routines.png" alt="Rastreamento de Rotinas" loading="lazy">
                     </div>
-                    <p>Documente e acompanhe seus experimentos com histórico completo, anotações e resultados organizados.</p>
+                    <div class="feature-content">
+                        <div class="feature-header">
+                            <span class="feature-icon">🧪</span>
+                            <h3>Rastreamento de Experimentos</h3>
+                        </div>
+                        <p>Documente e acompanhe seus experimentos com histórico completo, anotações e resultados organizados.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <span class="feature-icon">🌱</span>
-                        <h3>Controle de Amostras</h3>
+
+                <!-- Feature 4 - Image Right (Desktop) -->
+                <div class="feature-item reverse">
+                    <div class="feature-image desktop">
+                        <img src="images/samples.png" alt="Controle de Amostras" loading="lazy">
                     </div>
-                    <p>Gerencie amostras biológicas como plantas, ossos e outros materiais com rastreabilidade completa.</p>
+                    <div class="feature-content">
+                        <div class="feature-header">
+                            <span class="feature-icon">🌱</span>
+                            <h3>Controle de Amostras</h3>
+                        </div>
+                        <p>Gerencie amostras biológicas como plantas, ossos e outros materiais com rastreabilidade completa.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -259,19 +263,11 @@
                     <h4>Produto</h4>
                     <a href="#features">Funcionalidades</a>
                     <a href="#signup">Lista de Interesse</a>
-                    <a href="#">Documentação</a>
                 </div>
                 <div class="footer-column">
                     <h4>Empresa</h4>
-                    <a href="#">Sobre</a>
-                    <a href="#">Contato</a>
-                    <a href="#">Privacidade</a>
-                </div>
-                <div class="footer-column">
-                    <h4>Suporte</h4>
-                    <a href="#">Central de Ajuda</a>
-                    <a href="#">Status</a>
-                    <a href="#">Comunidade</a>
+                    <a href="about.html">Sobre</a>
+                    <a href="#signup">Contato</a>
                 </div>
             </div>
         </div>
