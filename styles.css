@@ -219,10 +219,13 @@ main {
 
 .screenshot-main {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 1rem;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
 }
 
 .screenshot-main:hover {
@@ -401,10 +404,14 @@ section {
 
 .feature-image.desktop {
     flex: 0 0 550px;
+    max-width: 550px;
+    width: 550px;
 }
 
 .feature-image.mobile {
     flex: 0 0 250px;
+    max-width: 250px;
+    width: 250px;
 }
 
 .feature-image:hover {
@@ -414,6 +421,7 @@ section {
 
 .feature-image img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
 }
