@@ -9,10 +9,10 @@ html {
 }
 
 :root {
-    --primary-color: #3b82f6;
-    --primary-dark: #2563eb;
+    --primary-color: #0d7a6c;
+    --primary-dark: #0a5f54;
     --secondary-color: #f8fafc;
-    --accent-color: #10b981;
+    --accent-color: #e8631c;
     --text-primary: #1f2937;
     --text-secondary: #6b7280;
     --text-light: #9ca3af;
@@ -20,8 +20,8 @@ html {
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-primary: linear-gradient(135deg, #0d7a6c 0%, #e8631c 100%);
+    --gradient-secondary: linear-gradient(135deg, #e8631c 0%, #0d7a6c 100%);
 }
 
 body {
@@ -42,7 +42,7 @@ body {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     transition: transform 0.3s ease;
 }
 
@@ -53,6 +53,23 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 90px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand a {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 110px;
+    width: auto;
+    display: block;
 }
 
 .nav-brand h1 {
@@ -490,8 +507,10 @@ section {
 }
 
 .feature-icon {
-    font-size: 2rem;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
+    object-fit: contain;
 }
 
 .feature-content h3 {
@@ -688,10 +707,6 @@ section {
     box-shadow: var(--shadow-md);
 }
 
-.use-case-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
 
 .use-case h3 {
     font-size: 1.25rem;
@@ -792,9 +807,11 @@ section {
     color: var(--text-secondary);
 }
 
-.signup-benefits .benefit-icon {
+.signup-benefits .benefit-item::before {
+    content: "✓";
     color: var(--accent-color);
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .cta-section {
@@ -994,6 +1011,14 @@ section {
         width: 100%;
     }
 
+    .nav {
+        height: 80px;
+    }
+
+    .nav-logo {
+        height: 95px;
+    }
+
     .nav-brand h1 {
         font-size: 1.25rem;
     }
@@ -1191,6 +1216,14 @@ section {
         padding: 0 0.75rem;
     }
 
+    .nav {
+        height: 70px;
+    }
+
+    .nav-logo {
+        height: 80px;
+    }
+
     .nav-brand h1 {
         font-size: 1.1rem;
     }
@@ -1234,7 +1267,8 @@ section {
     }
 
     .feature-icon {
-        font-size: 1.5rem;
+        width: 36px;
+        height: 36px;
     }
 
     .feature-content h3 {
@@ -1261,9 +1295,6 @@ section {
         width: 100%;
     }
 
-    .use-case-icon {
-        font-size: 2rem;
-    }
 
     .use-case h3 {
         font-size: 1.1rem;
