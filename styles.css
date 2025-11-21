@@ -59,11 +59,30 @@ body {
 .nav-brand {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
 }
 
 .nav-brand a {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.nav-favicon {
+    height: 40px;
+    width: 40px;
+    display: block;
+}
+
+.nav-brand-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: var(--primary-color);
 }
 
 .nav-logo {
@@ -1012,7 +1031,16 @@ section {
     }
 
     .nav {
-        height: 80px;
+        height: 70px;
+    }
+
+    .nav-favicon {
+        height: 35px;
+        width: 35px;
+    }
+
+    .nav-brand-text {
+        font-size: 1.5rem;
     }
 
     .nav-logo {
@@ -1217,7 +1245,16 @@ section {
     }
 
     .nav {
-        height: 70px;
+        height: 60px;
+    }
+
+    .nav-favicon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .nav-brand-text {
+        font-size: 1.25rem;
     }
 
     .nav-logo {
